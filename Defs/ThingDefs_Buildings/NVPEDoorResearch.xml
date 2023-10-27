@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ResearchProjectDef>
+		<defName>TeleDoor</defName>
+		<label>Teleporter Door</label>
+		<description>Tap into research of space and time to generate an artificial skipdoor</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Ultra</techLevel>
+		<prerequisites>
+			<li>Autodoors</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	</ResearchProjectDef>
+</Defs>

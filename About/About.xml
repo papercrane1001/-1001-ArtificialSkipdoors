@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>[1001]Artificial Skipdoors</name>
+	<author>papercrane1001</author>
+	<packageId>papercrane1001.artSkip</packageId>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<description>Strongly recommended for use with:
+	https://steamcommunity.com/sharedfiles/filedetails/?id=3011764218
+	
+	Like my mod?  Donate at:
+	https://ko-fi.com/papercrane1001
+	
+	I use the MIT license: https://opensource.org/licenses/MIT
+	which mostly says that if you use my code, please give me credit.  
+	
+	GitHub at: 
+	
+	 
+	\n\nVersion 1.0.0
+	\nFor version 1.4.</description>
+</ModMetaData>
