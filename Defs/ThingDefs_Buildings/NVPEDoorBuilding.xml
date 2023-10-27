@@ -35,7 +35,6 @@
 		<label>skipdoor</label>
 		<thingClass>_1001_ArtificialSkipdoors.NVPESkipDoor</thingClass>
 		<description>descriptionPlaceholder</description>
-		<iconPath>Abilities/Skipmaster/Skipdoor</iconPath>
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
 		</statBases>

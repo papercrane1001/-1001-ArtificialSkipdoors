@@ -33,7 +33,7 @@ namespace _1001_ArtificialSkipdoors
 
             //door.Pawn = pawn;
             Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
-            GenSpawn.Spawn(door, Position, map, WipeMode.Vanish);
+            GenSpawn.Spawn((Skipdoor)door, Position, map, WipeMode.Vanish);
         }
 
         public override void PostMake()
