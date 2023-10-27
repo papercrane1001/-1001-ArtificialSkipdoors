@@ -4,7 +4,7 @@
 		<defName>NVPEDoorBuilding</defName>
 		<label>TeleDoor</label>
 		<graphicData>
-			<texPath>blah</texPath>
+			<texPath>Textures/temp</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
