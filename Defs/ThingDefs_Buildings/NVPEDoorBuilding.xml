@@ -2,9 +2,10 @@
 <Defs>
 	<ThingDef ParentName="BuildingBase">
 		<defName>NVPEDoorBuilding</defName>
+		<thingClass>_1001_ArtificialSkipdoors.NVPEDoorBuilding</thingClass>
 		<label>TeleDoor</label>
 		<graphicData>
-			<texPath>Textures/temp</texPath>
+			<texPath>temp</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
@@ -18,19 +19,46 @@
 		<description>A technologically-generated skipdoor.</description>
 		<size>(1,1)</size>
 		<costList>
-			<Steel>150</Steel>
+			<Steel>10</Steel>
 		</costList>
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<designationCategory>Misc</designationCategory>
 		<researchPrerequisites>
 			<li>TeleDoor</li>
 		</researchPrerequisites>
-		<placeWorkers>
-			<li>_1001_ArtificialSkipdoors.NVPEDoorPlaceWorker</li>
-		</placeWorkers>
 		
 	</ThingDef>
 
 
-
+	<ThingDef ParentName="BuildingBase">
+		<defName>NVPESkipDoorDef</defName>
+		<label>skipdoor</label>
+		<thingClass>_1001_ArtificialSkipdoors.NVPESkipDoor</thingClass>
+		<description>descriptionPlaceholder</description>
+		<iconPath>Abilities/Skipmaster/Skipdoor</iconPath>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+		</statBases>
+		<drawerType>RealtimeOnly</drawerType>
+		<tickerType>Normal</tickerType>
+		<uiIconPath>Effects/Skipmaster/Skipgate/Skipgate</uiIconPath>
+		<modExtensions>
+			<li Class="VFECore.DoorTeleporterExtension">
+				<doorTeleporterBackgroundPath>Effects/Skipmaster/Skipgate/SkipgateBackground</doorTeleporterBackgroundPath>
+				<doorTeleporterMaskPath>Effects/Skipmaster/Skipgate/SkipgateMask</doorTeleporterMaskPath>
+				<maskThreshold>0.13</maskThreshold>
+				<mainMatPath>Effects/Skipmaster/Skipgate/Skipgate</mainMatPath>
+				<distortionMatPath>Things/Mote/Black</distortionMatPath>
+				<distortionMaskPath>Things/Mote/PsycastDistortionMask</distortionMaskPath>
+				<sustainer>VPE_Skipdoor_Sustainer</sustainer>
+				<destroyIconPath>Effects/Skipmaster/Skipgate/SkipdoorDestroy</destroyIconPath>
+				<renameIconPath>Effects/Skipmaster/Skipgate/SkipdoorRename</renameIconPath>
+				<destroyLabelKey>VPE.DestroySkipdoor</destroyLabelKey>
+				<destroyDescKey>VPE.DestroySkipdoor.Desc</destroyDescKey>
+				<renameLabelKey>VPE.RenameSkipdoor</renameLabelKey>
+				<renameDescKey>VPE.RenameSkipdoor.Desc</renameDescKey>
+			</li>
+		</modExtensions>
+		
+	</ThingDef>
 </Defs>
