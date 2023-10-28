@@ -1,0 +1,40 @@
+I'm hoping that I get inspiration before entering this in the Discord, because that sometimes happens when I have to organize my thoughts into a question.  
+
+I have a MySkipdoor : Skipdoor.  It works, with one major issue: Skipdoor.SpawnSetup assumes that its Pawn is not null, and having it be null causes an error.  Its GUI code also causes an error, but I think that if I find a way to solve the one error, I'll have a way to solve the other.  
+
+My dilemma is that if I override SpawnSetup and not call base.SpawnSetup, ThingWithComp's SpawnSetup doesn't run, and the resulting door doesn't work.  I specifically say ThingWithComp's SpawnSetup because that's the only one that uses a private field, "private List<ThingComp> comps;"
+
+I would subclass DoorTeleporter (the class above Skipdoor), but then it won't work with the mod "BetterVPESkipdoorPathing", which specifically uses Skipdoors, and is one of the main reasons why I think this mod is worthwhile.  
+
+
+
+
+
+public class A
+{
+private int a;
+public virtual void Init(){
+a = 0;
+}
+
+public class B : A
+{
+public int b;
+public override void Init(){
+base.Init();
+b = 1;
+}
+}
+
+public class C : B
+{
+public override void Init(){
+A test = (A)this;
+test.Init;
+
+}
+}
+
+What can I put in class C such that a is set to equal 0 and b is untouched?
+
+
