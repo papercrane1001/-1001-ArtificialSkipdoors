@@ -1,6 +1,6 @@
 I'm hoping that I get inspiration before entering this in the Discord, because that sometimes happens when I have to organize my thoughts into a question.  
 
-I have a MySkipdoor : Skipdoor.  It works, with one major issue: Skipdoor.SpawnSetup assumes that its Pawn is not null, and having it be null causes an error (having it be a half-hearted unspawned pawn also causes an error).  Its GUI code also causes an error, but I think that if I find a way to solve the one error, I'll have a way to solve the other.  
+I have a MySkipdoor : Skipdoor (from VPE).  It works, with one major issue: Skipdoor.SpawnSetup assumes that its Pawn is not null, and having it be null causes an error (having it be a half-hearted unspawned pawn also causes an error).  Its GUI code also causes an error, but I think that if I find a way to solve the one error, I'll have a way to solve the other.  
 
 My dilemma is that if I override SpawnSetup and not call base.SpawnSetup, ThingWithComp's SpawnSetup doesn't run, and the resulting door doesn't work.  I specifically say ThingWithComp's SpawnSetup because that's the only one that uses a private field, "private List<ThingComp> comps;"
 
@@ -9,7 +9,7 @@ I would subclass DoorTeleporter (the class above Skipdoor), but then it won't wo
 My thoughts on how to proceed are: 
 to communicate with the author of the above mod and ask if he'd be willing to add my class to his code 
 OR 
-some kind of Harmony or Prepatcher witchcraft.  So far I've only used it for adding pre and postfixes to selected methods, so even if I know it's possible, I'll still need a bit of guidance.  
+some kind of Harmony or Prepatcher witchcraft.  So far I've only used it for adding simple pre and postfixes to selected methods, so even if I know it's possible, I'll still need a bit of guidance.  
 
 I feel like there's a way to do it with the second option, but the only things I've thought of seem like extremely bad coding practice.  
 

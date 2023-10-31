@@ -82,7 +82,7 @@ namespace _1001_ArtificialSkipdoors
 
     public class NVPESkipDoor : Skipdoor
     {
-        
+        //public override 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             //base.SpawnSetup(map, respawningAfterLoad);
@@ -166,13 +166,27 @@ namespace _1001_ArtificialSkipdoors
             #endregion
 
             #region ThingWithComps
-            if(AllComps != null)
-            {
-                for(int i = 0; i < AllComps.Count; i++)
-                {
-                    AllComps[i].PostSpawnSetup(respawningAfterLoad);
-                }
-            }
+            Log.Message("Ping1");
+            //((ThingWithComps)this).SpawnSetup(map, respawningAfterLoad);
+            //ThingWithComps.prototype.SpawnSetup(map, respawningAfterLoad);
+            //var ptr = typeof(ThingWithComps).GetMethod("SpawnSetup").MethodHandle.GetFunctionPointer();
+            ////Func<>
+            //var ThingWithCompsSpawnSetup = (Action)Activator.CreateInstance(typeof(Action), this, ptr);
+            //ThingWithCompsSpawnSetup();
+
+
+
+
+
+            Log.Message("Ping2");
+            
+            //if (AllComps != null)
+            //{
+            //    for(int i = 0; i < AllComps.Count; i++)
+            //    {
+            //        AllComps[i].PostSpawnSetup(respawningAfterLoad);
+            //    }
+            //}
             //if (comps != null)
             //{
             //    for (int i = 0; i < comps.Count; i++)
