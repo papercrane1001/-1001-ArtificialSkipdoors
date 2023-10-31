@@ -15,17 +15,19 @@ using System.Reflection.Emit;
 
 namespace _1001_ArtificialSkipdoors
 {
-    [HarmonyPatch(typeof(VanillaPsycastsExpanded.Skipmaster.Skipdoor), "SpawnSetup")]
+    //[HarmonyPatch(typeof(Skipdoor), "SpawnSetup")]
+    [HarmonyPatch(typeof(Skipdoor), "SpawnSetup")]
     public static class SkipDoor_SpawnSetup_Transpiler
     {
         public static MethodBase TargetMethod()
         {
             return AccessTools.Method(typeof(Skipdoor), "SpawnSetup");
         }
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> SkipDoor_SpawnSetup_Actual_Transpiler(IEnumerable<CodeInstruction> instructions)
         {
+            Log.Message("ASTranspiler Running");
             List<CodeInstruction> instructionList = instructions.ToList();
-
+            
             for (int i = 0; i < instructionList.Count; i++)
             {
                 if (instructionList[i].opcode == OpCodes.Ldarg_0 && i + 2 < instructionList.Count)
@@ -34,6 +36,7 @@ namespace _1001_ArtificialSkipdoors
                     // Check if the subsequent instructions match the pattern for accessing "this.Pawn"
                     if (instructionList[i + 1].opcode == OpCodes.Ldfld && instructionList[i + 2].operand is FieldInfo fieldInfo && fieldInfo.Name == "Pawn")
                     {
+                        Log.Message("if's passed");
                         // Insert your null check and return logic
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo);

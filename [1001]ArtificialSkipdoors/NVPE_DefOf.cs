@@ -12,6 +12,6 @@ namespace _1001_ArtificialSkipdoors
     [DefOf]
     public class NVPE_DefOf
     {
-        public static ThingDef NVPESkipDoorDef;
+        //public static ThingDef NVPESkipDoorDef;
     }
 }
