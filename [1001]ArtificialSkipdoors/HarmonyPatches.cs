@@ -17,17 +17,17 @@ namespace _1001_ArtificialSkipdoors
     static class HarmonyPatches
     {
 
-        static HarmonyPatches()
-        {
-            //var harmony = new Harmony("rimworld.OneThousandOne.ArtificialSkipdoors");
+        //static HarmonyPatches()
+        //{
+        //    //var harmony = new Harmony("rimworld.OneThousandOne.ArtificialSkipdoors");
 
-            //System.Reflection.MethodInfo mOriginal = AccessTools.Method(typeof(Skipdoor), "SpawnSetup");
-            //var mPrefix = AccessTools.Method(typeof(HarmonyPatches), "SpawnSetup_Postfix");
+        //    //System.Reflection.MethodInfo mOriginal = AccessTools.Method(typeof(Skipdoor), "SpawnSetup");
+        //    //var mPrefix = AccessTools.Method(typeof(HarmonyPatches), "SpawnSetup_Postfix");
 
-            //harmony.Patch(mOriginal, null, new HarmonyMethod(mPrefix));
+        //    //harmony.Patch(mOriginal, null, new HarmonyMethod(mPrefix));
 
             
-        }
+        //}
         ////public static bool SpawnSetup_Postfix(ref Map map, ref bool respawningAfterLoad)
         //public static bool SpawnSetup_Prefix(ref bool __result, ref Skipdoor __instance, Map map, bool respawningAfterLoad)//Wrong order?  
         //{
