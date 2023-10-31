@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\..\..\..\Users\wallison\source\Libraries\Harmony.2.1.1.0\net5.0\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="0PrepatcherAPI, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Zetrith.Prepatcher.1.2.0\lib\net472\0PrepatcherAPI.dll</HintPath>
     </Reference>
@@ -63,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="NVPE_DefOf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
