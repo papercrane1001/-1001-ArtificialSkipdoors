@@ -4,51 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Reflection;
 using HarmonyLib;
 using RimWorld;
 using Verse;
 using UnityEngine;
 
 using VanillaPsycastsExpanded.Skipmaster;
+using System.Reflection.Emit;
 
 namespace _1001_ArtificialSkipdoors
 {
-    [StaticConstructorOnStartup]
-    static class HarmonyPatches
+    [HarmonyPatch(typeof(VanillaPsycastsExpanded.Skipmaster.Skipdoor), "SpawnSetup")]
+    public static class SkipDoor_SpawnSetup_Transpiler
     {
+        public static MethodBase TargetMethod()
+        {
+            return AccessTools.Method(typeof(Skipdoor), "SpawnSetup");
+        }
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            List<CodeInstruction> instructionList = instructions.ToList();
 
-        //static HarmonyPatches()
-        //{
-        //    //var harmony = new Harmony("rimworld.OneThousandOne.ArtificialSkipdoors");
-
-        //    //System.Reflection.MethodInfo mOriginal = AccessTools.Method(typeof(Skipdoor), "SpawnSetup");
-        //    //var mPrefix = AccessTools.Method(typeof(HarmonyPatches), "SpawnSetup_Postfix");
-
-        //    //harmony.Patch(mOriginal, null, new HarmonyMethod(mPrefix));
-
-            
-        //}
-        ////public static bool SpawnSetup_Postfix(ref Map map, ref bool respawningAfterLoad)
-        //public static bool SpawnSetup_Prefix(ref bool __result, ref Skipdoor __instance, Map map, bool respawningAfterLoad)//Wrong order?  
-        //{
-        //    //System.Reflection.MethodInfo mCalculateGrowth = AccessTools.Method(typeof(Verse.Pawn_AgeTracker), "CalculateGrowth");
-        //    //mCalculateGrowth.Invoke(__instance, new object[] { 60 * +60000 });
-
-        //    System.Reflection.MethodInfo mSpawnSetup = AccessTools.Method(typeof(Skipdoor), "SpawnSetup");
-        //    mSpawnSetup.Invoke(__instance, new object[] { map, respawningAfterLoad });
-
-        //    NVPESkipDoor check = __instance as NVPESkipDoor;
-        //    if (check == null)
-        //    {
-        //        Log.Message("HarPing1");
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        //__instance.SpawnSetup()
-        //        Log.Message("HarPing2");
-        //        return false;
-        //    }
-        //}
+            for (int i = 0; i < instructionList.Count; i++)
+            {
+                if (instructionList[i].opcode == OpCodes.Ldarg_0 && i + 2 < instructionList.Count)
+                {
+                    // Look for the "ldarg.0" instruction, which loads the "this" argument
+                    // Check if the subsequent instructions match the pattern for accessing "this.Pawn"
+                    if (instructionList[i + 1].opcode == OpCodes.Ldfld && instructionList[i + 2].operand is FieldInfo fieldInfo && fieldInfo.Name == "Pawn")
+                    {
+                        // Insert your null check and return logic
+                        yield return new CodeInstruction(OpCodes.Ldarg_0);
+                        yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo);
+                        yield return new CodeInstruction(OpCodes.Brfalse, instructionList[i]);
+                        yield return instructionList[i];
+                    }
+                    else
+                    {
+                        yield return instructionList[i];
+                    }
+                }
+                else
+                {
+                    yield return instructionList[i];
+                }
+            }
+        }
     }
+
+    
+    
 }

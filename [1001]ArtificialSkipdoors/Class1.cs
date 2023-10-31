@@ -30,19 +30,16 @@ namespace _1001_ArtificialSkipdoors
             base.SpawnSetup(map, respawningAfterLoad);
             //Skipdoor Sdoor = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
 
-            door = (NVPESkipDoor)ThingMaker.MakeThing(NVPE_DefOf.NVPESkipDoorDef, null);
-
-            //door = new NVPESkipDoor();
-            //door.Label = "skipdoor";
-
-            //door.Pawn = pawn;
-            Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
-            GenSpawn.Spawn(door, Position + new IntVec3(1,0,0), map, WipeMode.Vanish);
-
-
-            //Skipdoor Sdoor = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
+            //door = (NVPESkipDoor)ThingMaker.MakeThing(NVPE_DefOf.NVPESkipDoorDef, null);
             //Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
-            //GenSpawn.Spawn(Sdoor, Position + new IntVec3(-1, 0, 0), map, WipeMode.Vanish);
+            //GenSpawn.Spawn(door, Position + new IntVec3(1, 0, 0), map, WipeMode.Vanish);
+            Log.Message("Ping1");
+
+            Skipdoor Sdoor = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
+            Log.Message("Ping2");
+            Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
+            GenSpawn.Spawn(Sdoor, Position + new IntVec3(-1, 0, 0), map, WipeMode.Vanish);
+            Log.Message("Ping3");
         }
 
         public override void PostMake()
@@ -85,132 +82,132 @@ namespace _1001_ArtificialSkipdoors
         //public override 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            //base.SpawnSetup(map, respawningAfterLoad);
-            #region Thing
-            map.listerThings.Add(this);
-            map.thingGrid.Register(this);
-            map.gasGrid.Notify_ThingSpawned(this);
-            map.mapTemperature.Notify_ThingSpawned(this);
-            if (map.IsPlayerHome)
-            {
-                EverSeenByPlayer = true;
-            }
-
-            if (Find.TickManager != null)
-            {
-                Find.TickManager.RegisterAllTickabilityFor(this);
-            }
-
-            DirtyMapMesh(map);
-            if (def.drawerType != DrawerType.MapMeshOnly)
-            {
-                map.dynamicDrawManager.RegisterDrawable(this);
-            }
-
-            map.tooltipGiverList.Notify_ThingSpawned(this);
-            if (def.CanAffectLinker)
-            {
-                map.linkGrid.Notify_LinkerCreatedOrDestroyed(this);
-                map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, regenAdjacentCells: true, regenAdjacentSections: false);
-            }
-
-            if (def.pathCost != 0 || def.passability == Traversability.Impassable)
-            {
-                map.pathing.RecalculatePerceivedPathCostUnderThing(this);
-            }
-
-            if (def.AffectsReachability)
-            {
-                map.reachability.ClearCache();
-            }
-
-            map.coverGrid.Register(this);
-            if (def.category == ThingCategory.Item)
-            {
-                map.listerHaulables.Notify_Spawned(this);
-                map.listerMergeables.Notify_Spawned(this);
-            }
-
-            map.attackTargetsCache.Notify_ThingSpawned(this);
-            (map.regionGrid.GetValidRegionAt_NoRebuild(Position)?.Room)?.Notify_ContainedThingSpawnedOrDespawned(this);
-            StealAIDebugDrawer.Notify_ThingChanged(this);
-            IHaulDestination haulDestination = this as IHaulDestination;
-            if (haulDestination != null)
-            {
-                map.haulDestinationManager.AddHaulDestination(haulDestination);
-            }
-
-            if (this is IThingHolder && Find.ColonistBar != null)
-            {
-                Find.ColonistBar.MarkColonistsDirty();
-            }
-
-            if (def.category == ThingCategory.Item)
-            {
-                SlotGroup slotGroup = Position.GetSlotGroup(map);
-                if (slotGroup != null && slotGroup.parent != null)
-                {
-                    slotGroup.parent.Notify_ReceivedThing(this);
-                }
-            }
-
-            if (def.receivesSignals)
-            {
-                Find.SignalManager.RegisterReceiver(this);
-            }
-
-            if (!respawningAfterLoad)
-            {
-                QuestUtility.SendQuestTargetSignals(questTags, "Spawned", this.Named("SUBJECT"));
-            }
-            #endregion
-
-            #region ThingWithComps
-            Log.Message("Ping1");
-            //((ThingWithComps)this).SpawnSetup(map, respawningAfterLoad);
-            //ThingWithComps.prototype.SpawnSetup(map, respawningAfterLoad);
-            //var ptr = typeof(ThingWithComps).GetMethod("SpawnSetup").MethodHandle.GetFunctionPointer();
-            ////Func<>
-            //var ThingWithCompsSpawnSetup = (Action)Activator.CreateInstance(typeof(Action), this, ptr);
-            //ThingWithCompsSpawnSetup();
-
-
-
-
-
-            Log.Message("Ping2");
-            
-            //if (AllComps != null)
+            base.SpawnSetup(map, respawningAfterLoad);
+            //#region Thing
+            //map.listerThings.Add(this);
+            //map.thingGrid.Register(this);
+            //map.gasGrid.Notify_ThingSpawned(this);
+            //map.mapTemperature.Notify_ThingSpawned(this);
+            //if (map.IsPlayerHome)
             //{
-            //    for(int i = 0; i < AllComps.Count; i++)
+            //    EverSeenByPlayer = true;
+            //}
+
+            //if (Find.TickManager != null)
+            //{
+            //    Find.TickManager.RegisterAllTickabilityFor(this);
+            //}
+
+            //DirtyMapMesh(map);
+            //if (def.drawerType != DrawerType.MapMeshOnly)
+            //{
+            //    map.dynamicDrawManager.RegisterDrawable(this);
+            //}
+
+            //map.tooltipGiverList.Notify_ThingSpawned(this);
+            //if (def.CanAffectLinker)
+            //{
+            //    map.linkGrid.Notify_LinkerCreatedOrDestroyed(this);
+            //    map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things, regenAdjacentCells: true, regenAdjacentSections: false);
+            //}
+
+            //if (def.pathCost != 0 || def.passability == Traversability.Impassable)
+            //{
+            //    map.pathing.RecalculatePerceivedPathCostUnderThing(this);
+            //}
+
+            //if (def.AffectsReachability)
+            //{
+            //    map.reachability.ClearCache();
+            //}
+
+            //map.coverGrid.Register(this);
+            //if (def.category == ThingCategory.Item)
+            //{
+            //    map.listerHaulables.Notify_Spawned(this);
+            //    map.listerMergeables.Notify_Spawned(this);
+            //}
+
+            //map.attackTargetsCache.Notify_ThingSpawned(this);
+            //(map.regionGrid.GetValidRegionAt_NoRebuild(Position)?.Room)?.Notify_ContainedThingSpawnedOrDespawned(this);
+            //StealAIDebugDrawer.Notify_ThingChanged(this);
+            //IHaulDestination haulDestination = this as IHaulDestination;
+            //if (haulDestination != null)
+            //{
+            //    map.haulDestinationManager.AddHaulDestination(haulDestination);
+            //}
+
+            //if (this is IThingHolder && Find.ColonistBar != null)
+            //{
+            //    Find.ColonistBar.MarkColonistsDirty();
+            //}
+
+            //if (def.category == ThingCategory.Item)
+            //{
+            //    SlotGroup slotGroup = Position.GetSlotGroup(map);
+            //    if (slotGroup != null && slotGroup.parent != null)
             //    {
-            //        AllComps[i].PostSpawnSetup(respawningAfterLoad);
+            //        slotGroup.parent.Notify_ReceivedThing(this);
             //    }
             //}
-            //if (comps != null)
+
+            //if (def.receivesSignals)
             //{
-            //    for (int i = 0; i < comps.Count; i++)
-            //    {
-            //        comps[i].PostSpawnSetup(respawningAfterLoad);
-            //    }
+            //    Find.SignalManager.RegisterReceiver(this);
             //}
-            #endregion
 
-            #region DoorTeleporter
-            WorldComponent_DoorTeleporterManager.Instance.DoorTeleporters.Add((Skipdoor)this);
-            DoorTeleporterMaterials mat = doorTeleporterMaterials[def];
-            LongEventHandler.ExecuteWhenFinished(delegate
-            {
-                background1 = new RenderTexture(mat.backgroundTex.width, mat.backgroundTex.height, 0);
-                background2 = new RenderTexture(mat.backgroundTex.width, mat.backgroundTex.height, 0);
-                backgroundMat = new Material(ShaderDatabase.TransparentPostLight);
-                RecacheBackground();
-            });
-            #endregion
+            //if (!respawningAfterLoad)
+            //{
+            //    QuestUtility.SendQuestTargetSignals(questTags, "Spawned", this.Named("SUBJECT"));
+            //}
+            //#endregion
 
-            #region Skipdoor
+            //#region ThingWithComps
+            //Log.Message("Ping1");
+            ////((ThingWithComps)this).SpawnSetup(map, respawningAfterLoad);
+            ////ThingWithComps.prototype.SpawnSetup(map, respawningAfterLoad);
+            ////var ptr = typeof(ThingWithComps).GetMethod("SpawnSetup").MethodHandle.GetFunctionPointer();
+            //////Func<>
+            ////var ThingWithCompsSpawnSetup = (Action)Activator.CreateInstance(typeof(Action), this, ptr);
+            ////ThingWithCompsSpawnSetup();
 
-            #endregion
+
+
+
+
+            //Log.Message("Ping2");
+
+            ////if (AllComps != null)
+            ////{
+            ////    for(int i = 0; i < AllComps.Count; i++)
+            ////    {
+            ////        AllComps[i].PostSpawnSetup(respawningAfterLoad);
+            ////    }
+            ////}
+            ////if (comps != null)
+            ////{
+            ////    for (int i = 0; i < comps.Count; i++)
+            ////    {
+            ////        comps[i].PostSpawnSetup(respawningAfterLoad);
+            ////    }
+            ////}
+            //#endregion
+
+            //#region DoorTeleporter
+            //WorldComponent_DoorTeleporterManager.Instance.DoorTeleporters.Add((Skipdoor)this);
+            //DoorTeleporterMaterials mat = doorTeleporterMaterials[def];
+            //LongEventHandler.ExecuteWhenFinished(delegate
+            //{
+            //    background1 = new RenderTexture(mat.backgroundTex.width, mat.backgroundTex.height, 0);
+            //    background2 = new RenderTexture(mat.backgroundTex.width, mat.backgroundTex.height, 0);
+            //    backgroundMat = new Material(ShaderDatabase.TransparentPostLight);
+            //    RecacheBackground();
+            //});
+            //#endregion
+
+            //#region Skipdoor
+
+            //#endregion
         }
     }
 
