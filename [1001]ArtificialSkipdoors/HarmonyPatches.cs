@@ -52,9 +52,13 @@ namespace _1001_ArtificialSkipdoors
                             Log.Message("Found method call, running patch");
                             found = true;
                             //Log.Message(fieldInfo_Psycasts.Name);
+                            
                             yield return new CodeInstruction(OpCodes.Ldarg_0);
+                            Log.Message("First line ran");
                             yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo_pawn);
-                            yield return new CodeInstruction(OpCodes.Brfalse, instructionList[i]);
+                            Log.Message("Second line ran");
+                            yield return new CodeInstruction(OpCodes.Brfalse, instructionList[i+1]);
+                            Log.Message("Third line ran");
                             yield return instructionList[i];
                         }
                         else
