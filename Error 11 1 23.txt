@@ -1,0 +1,36 @@
+Error while instantiating a mod of type _1001_ArtificialSkipdoors.ModEntry: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: Unexpected unemittable operand type HarmonyLib.CodeInstruction
+  at MonoMod.Utils.Cil.ILGeneratorShimExt.DynEmit (System.Reflection.Emit.ILGenerator il, System.Object[] emitArgs) [0x0007f] in <255414689d344b1385ae719f6cce8c55>:0 
+  at MonoMod.Utils.Cil.ILGeneratorShimExt.DynEmit (System.Reflection.Emit.ILGenerator il, System.Reflection.Emit.OpCode opcode, System.Object operand) [0x00000] in <255414689d344b1385ae719f6cce8c55>:0 
+  at HarmonyLib.MethodBodyReader+<>c__DisplayClass24_0.<FinalizeILCodes>b__2 (HarmonyLib.CodeInstruction codeInstruction) [0x00180] in <255414689d344b1385ae719f6cce8c55>:0 
+  at HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) [0x00014] in <255414689d344b1385ae719f6cce8c55>:0 
+  at HarmonyLib.MethodBodyReader.FinalizeILCodes (HarmonyLib.Emitter emitter, System.Collections.Generic.List`1[T] transpilers, System.Collections.Generic.List`1[T] endLabels, System.Boolean& hasReturnCode) [0x00203] in <255414689d344b1385ae719f6cce8c55>:0 
+  at HarmonyLib.MethodCopier.Finalize (HarmonyLib.Emitter emitter, System.Collections.Generic.List`1[T] endLabels, System.Boolean& hasReturnCode) [0x00000] in <255414689d344b1385ae719f6cce8c55>:0 
+  at HarmonyLib.MethodPatcher.CreateReplacement (System.Collections.Generic.Dictionary`2[System.Int32,HarmonyLib.CodeInstruction]& finalInstructions) [0x002be] in <255414689d344b1385ae719f6cce8c55>:0 
+  at HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) [0x00057] in <255414689d344b1385ae719f6cce8c55>:0 
+  at HarmonyLib.PatchProcessor.Patch () [0x000fc] in <255414689d344b1385ae719f6cce8c55>:0 
+  at HarmonyLib.Harmony.Patch (System.Reflection.MethodBase original, HarmonyLib.HarmonyMethod prefix, HarmonyLib.HarmonyMethod postfix, HarmonyLib.HarmonyMethod transpiler, HarmonyLib.HarmonyMethod finalizer) [0x00028] in <255414689d344b1385ae719f6cce8c55>:0 
+  at _1001_ArtificialSkipdoors.ModEntry..ctor (Verse.ModContentPack content) [0x0009b] in <eb1f89dbff9342138452bdd524a8b4f7>:0 
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod.InternalInvoke(System.Reflection.MonoCMethod,object,object[],System.Exception&)
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00002] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00014] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at System.Reflection.MonoCMethod.DoInvoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0007a] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at System.Reflection.MonoCMethod.Invoke (System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at System.RuntimeType.CreateInstanceImpl (System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Threading.StackCrawlMark& stackMark) [0x00213] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) [0x00095] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Object[] args) [0x00000] in <eae584ce26bc40229c1b1aa476bfa589>:0 
+  at Verse.LoadedModManager.CreateModClasses () [0x00076] in <95de19971c5d40878d8742747904cdcd>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+(wrapper dynamic-method) Verse.Log:Verse.Log.Error_Patch1 (string)
+Verse.LoadedModManager:CreateModClasses ()
+Verse.LoadedModManager:LoadAllActiveMods ()
+Verse.PlayDataLoader:DoPlayLoad ()
+Verse.PlayDataLoader:LoadAllPlayData (bool)
+Verse.Root/<>c:<Start>b__6_1 ()
+Verse.LongEventHandler:RunEventFromAnotherThread (System.Action)
+Verse.LongEventHandler/<>c:<UpdateCurrentAsynchronousEvent>b__27_0 ()
+System.Threading.ThreadHelper:ThreadStart_Context (object)
+System.Threading.ExecutionContext:RunInternal (System.Threading.ExecutionContext,System.Threading.ContextCallback,object,bool)
+System.Threading.ExecutionContext:Run (System.Threading.ExecutionContext,System.Threading.ContextCallback,object,bool)
+System.Threading.ExecutionContext:Run (System.Threading.ExecutionContext,System.Threading.ContextCallback,object)
+System.Threading.ThreadHelper:ThreadStart ()
