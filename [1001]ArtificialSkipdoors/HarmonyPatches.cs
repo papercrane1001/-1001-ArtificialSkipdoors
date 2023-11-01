@@ -57,7 +57,11 @@ namespace _1001_ArtificialSkipdoors
                             Log.Message("First line ran");
                             yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo_pawn);
                             Log.Message("Second line ran");
-                            yield return new CodeInstruction(OpCodes.Brfalse, instructionList[i+1]);
+                            yield return new CodeInstruction(OpCodes.Brfalse, instructionList[i + 1]);
+                            //yield return new CodeInstruction(OpCodes.Brfalse);
+                            //Label label = AbstractShapeGenerator.
+                            //yield return new CodeInstruction(OpCodes.Brfalse, null);
+
                             Log.Message("Third line ran");
                             yield return instructionList[i];
                         }
