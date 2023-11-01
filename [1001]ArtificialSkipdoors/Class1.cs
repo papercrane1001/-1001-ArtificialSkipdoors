@@ -38,10 +38,10 @@ namespace _1001_ArtificialSkipdoors
 
             pdoor = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
             if(pdoor == null) { Log.Message("Sdoor null"); }
-            Log.Message("Ping2");
+            //Log.Message("Ping2");
             Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(pdoor));
             GenSpawn.Spawn(pdoor, Position + new IntVec3(-1, 0, 0), map, WipeMode.Vanish);
-            Log.Message("Ping3");
+            //Log.Message("Ping3");
         }
 
         public override void PostMake()

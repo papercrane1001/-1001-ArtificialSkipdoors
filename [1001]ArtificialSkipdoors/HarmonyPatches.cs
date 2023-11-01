@@ -34,34 +34,19 @@ namespace _1001_ArtificialSkipdoors
                 if (instructionList[i].opcode == OpCodes.Ldarg_0 && i + 2 < instructionList.Count && found == false)
                 {
                     Log.Message("Found 'this'");
-                    // Look for the "ldarg.0" instruction, which loads the "this" argument
-                    // Check if the subsequent instructions match the pattern for accessing "this.Pawn"
                     if(instructionList[i + 1].operand is FieldInfo fieldInfo_pawn && fieldInfo_pawn.Name == "Pawn")
                     {
                         Log.Message("Found this.Pawn");
-                        //Log.Message("fieldInfo.Name: " + ((FieldInfo)instructionList[i + 2].operand).Name); // <-- threw an error
-                        //if (instructionList[i+2].operand is FieldInfo fieldInfo_Psycasts)
-                        //{
-                        //    Log.Message("fieldInfo.Name: " + fieldInfo_pawn.Name);
-                        //}
-                        //if(fieldInfo.Name == "")
-                        Log.Message("Point: " + instructionList[i + 2].operand.ToString()); // Should be VanillaPsycastsExpanded.Hediff_PsycastAbilities Psycasts(Verse.Pawn)
-
+                        //Log.Message("Point: " + instructionList[i + 2].operand.ToString()); // Should be VanillaPsycastsExpanded.Hediff_PsycastAbilities Psycasts(Verse.Pawn)
                         if (instructionList[i + 2].opcode == OpCodes.Call)
                         {
                             Log.Message("Found method call, running patch");
                             found = true;
-                            //Log.Message(fieldInfo_Psycasts.Name);
-                            
                             yield return new CodeInstruction(OpCodes.Ldarg_0);
                             Log.Message("First line ran");
                             yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo_pawn);
                             Log.Message("Second line ran");
                             Label label = new Label();
-                            //yield return new CodeInstruction(OpCodes.Brfalse, instructionList[i + 1]);
-                            //yield return new CodeInstruction(OpCodes.Brfalse);
-                            //Label label = AbstractShapeGenerator.
-                            //yield return new CodeInstruction(OpCodes.Brfalse, null);
                             yield return new CodeInstruction(OpCodes.Brfalse, label);
 
                             Log.Message("Third line ran");
