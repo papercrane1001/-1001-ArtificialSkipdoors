@@ -61,33 +61,33 @@ namespace _1001_ArtificialSkipdoors
 
 
     [HarmonyPatch(typeof(Skipdoor), "GetDoorTeleporterGismoz")]
-    //public static class SkipDoor_GetDoorTeleporterGismoz_Transpiler
-    //{
-    //    public static MethodBase TargetMethod()
-    //    {
-    //        return AccessTools.Method(typeof(Skipdoor), "GetDoorTeleporterGismoz");
-    //    }
-    //    //public static IEnumerable<CodeInstruction> SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
-    //    //{
-    //    //    List<CodeInstruction> instructionList = instructions.ToList();
-    //    //    bool found = false;
-    //    //    FieldInfo pawnInfo = AccessTools.Field(typeof(Skipdoor), nameof(Skipdoor.Pawn));
+    public static class SkipDoor_GetDoorTeleporterGismoz_Transpiler
+    {
+        public static MethodBase TargetMethod()
+        {
+            return AccessTools.Method(typeof(Skipdoor), "GetDoorTeleporterGismoz");
+        }
+        //public static IEnumerable<CodeInstruction> SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
+        //{
+        //    List<CodeInstruction> instructionList = instructions.ToList();
+        //    bool found = false;
+        //    FieldInfo pawnInfo = AccessTools.Field(typeof(Skipdoor), nameof(Skipdoor.Pawn));
 
-    //    //    for (int i = 0; i < instructionList.Count; i++)
-    //    //    {
-    //    //        if(
-    //    //            found == false &&
-    //    //            instructionList[i].opcode == OpCodes.Ldarg_0 && i + 2 < instructionList.Count &&
-    //    //            instructionList[i + 1].LoadsField(pawnInfo)
-    //    //            )
-    //    //        {
-    //    //            //defaultDesc = extension.destroyDescKey.Translate(this([i]).Pawn([i+1]).NameFullColored([i+2]))
-    //    //            found = true;
+        //    for (int i = 0; i < instructionList.Count; i++)
+        //    {
+        //        if(
+        //            found == false &&
+        //            instructionList[i].opcode == OpCodes.Ldarg_0 && i + 2 < instructionList.Count &&
+        //            instructionList[i + 1].LoadsField(pawnInfo)
+        //            )
+        //        {
+        //            //defaultDesc = extension.destroyDescKey.Translate(this([i]).Pawn([i+1]).NameFullColored([i+2]))
+        //            found = true;
 
-    //    //        }
-    //    //    }
-    //    //}
-    //}
+        //        }
+        //    }
+        //}
+    }
 
 
     /*
