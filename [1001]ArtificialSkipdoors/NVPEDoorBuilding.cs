@@ -22,8 +22,6 @@ namespace _1001_ArtificialSkipdoors
 {
     public class NVPEDoorBuilding : Building
     {
-        //public NVPESkipDoor door;
-        //public Pawn pawn;
         public Skipdoor pdoor;
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {

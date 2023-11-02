@@ -24,7 +24,7 @@ namespace _1001_ArtificialSkipdoors
         }
         public static IEnumerable<CodeInstruction> SkipDoor_SpawnSetup_Actual_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
         {
-            Log.Message("ASTranspiler Running");
+            //Log.Message("ASTranspiler Running");
             List<CodeInstruction> instructionList = instructions.ToList();
             bool found = false;
 
@@ -58,4 +58,72 @@ namespace _1001_ArtificialSkipdoors
         }
     }
 
+
+
+    [HarmonyPatch(typeof(Skipdoor), "GetDoorTeleporterGismoz")]
+    //public static class SkipDoor_GetDoorTeleporterGismoz_Transpiler
+    //{
+    //    public static MethodBase TargetMethod()
+    //    {
+    //        return AccessTools.Method(typeof(Skipdoor), "GetDoorTeleporterGismoz");
+    //    }
+    //    //public static IEnumerable<CodeInstruction> SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
+    //    //{
+    //    //    List<CodeInstruction> instructionList = instructions.ToList();
+    //    //    bool found = false;
+    //    //    FieldInfo pawnInfo = AccessTools.Field(typeof(Skipdoor), nameof(Skipdoor.Pawn));
+
+    //    //    for (int i = 0; i < instructionList.Count; i++)
+    //    //    {
+    //    //        if(
+    //    //            found == false &&
+    //    //            instructionList[i].opcode == OpCodes.Ldarg_0 && i + 2 < instructionList.Count &&
+    //    //            instructionList[i + 1].LoadsField(pawnInfo)
+    //    //            )
+    //    //        {
+    //    //            //defaultDesc = extension.destroyDescKey.Translate(this([i]).Pawn([i+1]).NameFullColored([i+2]))
+    //    //            found = true;
+
+    //    //        }
+    //    //    }
+    //    //}
+    //}
+
+
+    /*
+     * public override IEnumerable<Gizmo> GetDoorTeleporterGismoz()
+		{
+			DoorTeleporterExtension extension = this.def.GetModExtension<DoorTeleporterExtension>();
+			DoorTeleporterMaterials doorMaterials = DoorTeleporter.doorTeleporterMaterials[this.def];
+			bool flag = doorMaterials.DestroyIcon != null;
+			if (flag)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = extension.destroyLabelKey.Translate(),
+					defaultDesc = extension.destroyDescKey.Translate(this.Pawn.NameFullColored),
+					icon = doorMaterials.DestroyIcon,
+					action = delegate()
+					{
+						this.Destroy(DestroyMode.Vanish);
+					}
+				};
+			}
+			bool flag2 = doorMaterials.RenameIcon != null;
+			if (flag2)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = extension.renameLabelKey.Translate(),
+					defaultDesc = extension.renameDescKey.Translate(),
+					icon = doorMaterials.RenameIcon,
+					action = delegate()
+					{
+						Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(this));
+					}
+				};
+			}
+			yield break;
+		}
+    */
 }
