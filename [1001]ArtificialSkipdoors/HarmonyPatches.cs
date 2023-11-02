@@ -27,6 +27,7 @@ namespace _1001_ArtificialSkipdoors
         {
             Log.Message("ASTranspiler Running");
             List<CodeInstruction> instructionList = instructions.ToList();
+            //MethodBuilder plhldr = new MethodBuilder();
             bool found = false;
             
             for (int i = 0; i < instructionList.Count; i++)
@@ -43,11 +44,17 @@ namespace _1001_ArtificialSkipdoors
                             Log.Message("Found method call, running patch");
                             found = true;
                             yield return new CodeInstruction(OpCodes.Ldarg_0);
-                            Log.Message("First line ran");
                             yield return new CodeInstruction(OpCodes.Ldfld, fieldInfo_pawn);
-                            Log.Message("Second line ran");
                             Label label = new Label();
-                            yield return new CodeInstruction(OpCodes.Brfalse, label);
+                            //DynamicMethod dynamicMethod = new DynamicMethod("MyDynamicMethod", typeof(void), null);
+                            //ILGenerator il = dynamicMethod.GetILGenerator();
+
+                            //label = il.DefineLabel();
+
+
+                            //ILGenerator q = new ILGenerator()
+                            yield return new CodeInstruction(OpCodes.Brtrue, label);
+                            yield return new CodeInstruction(OpCodes.Ret);
 
                             Log.Message("Third line ran");
                             yield return instructionList[i];
