@@ -10,6 +10,8 @@
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<passability>Standable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
 			<WorkToMake>500</WorkToMake>
@@ -22,10 +24,13 @@
 			<Steel>10</Steel>
 		</costList>
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-		<designationCategory>Misc</designationCategory>
+		<designationCategory>Structure</designationCategory>
 		<researchPrerequisites>
 			<li>TeleDoor</li>
 		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
 		
 	</ThingDef>
 

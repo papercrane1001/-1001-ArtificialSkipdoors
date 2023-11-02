@@ -27,39 +27,22 @@ namespace _1001_ArtificialSkipdoors
         public Skipdoor pdoor;
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            //pawn = new Pawn();
             base.SpawnSetup(map, respawningAfterLoad);
-            //Skipdoor Sdoor = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
-
-            //door = (NVPESkipDoor)ThingMaker.MakeThing(NVPE_DefOf.NVPESkipDoorDef, null);
-            //Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
-            //GenSpawn.Spawn(door, Position + new IntVec3(1, 0, 0), map, WipeMode.Vanish);
-            Log.Message("Ping1");
 
             pdoor = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
             if(pdoor == null) { Log.Message("Sdoor null"); }
-            //Log.Message("Ping2");
             Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(pdoor));
-            GenSpawn.Spawn(pdoor, Position + new IntVec3(-1, 0, 0), map, WipeMode.Vanish);
-            //Log.Message("Ping3");
-        }
-
-        public override void PostMake()
-        {
-            base.PostMake();
-            //door = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
-            //Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
-            //GenSpawn.Spawn(door, Position, Map, WipeMode.Vanish);
+            GenSpawn.Spawn(pdoor, Position + new IntVec3(0, 0, -1).RotatedBy(Rotation), map, WipeMode.Vanish);
         }
         public override void Tick()
         {
             base.Tick();
-            //if(door == null)
-            //{
-            //    door = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
-            //    Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
-            //    GenSpawn.Spawn(door, Position, Map, WipeMode.Vanish);
-            //}
+        }
+
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        {
+            base.DeSpawn(mode);
+            pdoor.Destroy();
         }
     }
 }

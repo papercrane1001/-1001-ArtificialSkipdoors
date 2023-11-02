@@ -1,5 +1,4 @@
 Original:
-// Token: 0x060003F3 RID: 1011 RVA: 0x0001AF48 File Offset: 0x00019148
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			base.SpawnSetup(map, respawningAfterLoad);
@@ -12,9 +11,8 @@ Original:
 		
 		
 		
-Mine:
+My plan:
 
-// Token: 0x060003F3 RID: 1011 RVA: 0x0001AF48 File Offset: 0x00019148
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			base.SpawnSetup(map, respawningAfterLoad);
