@@ -29,11 +29,18 @@ namespace _1001_ArtificialSkipdoors
             if(mOriginal == null) { Log.Message("mOriginal null"); }
             if(mTranspiler == null) { Log.Message("mTranspiler null"); }
             har.Patch(mOriginal, null, null, new HarmonyMethod(mTranspiler));
+
+            System.Reflection.MethodInfo mOGUI = AccessTools.Method(typeof(VanillaPsycastsExpanded.Skipmaster.Skipdoor), "GetDoorTeleporterGismoz");
+            var mTrGUI = AccessTools.Method(
+                typeof(SkipDoor_GetDoorTeleporterGismoz_Transpiler),
+                "SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler");
+            har.Patch(mOGUI, null, null, new HarmonyMethod(mTrGUI));
         }
 
         
     }
 
+    //public class
 
     //[UsedImplicitly]
     //[StaticConstructorOnStartup]

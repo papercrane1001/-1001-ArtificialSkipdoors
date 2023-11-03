@@ -67,6 +67,40 @@ namespace _1001_ArtificialSkipdoors
         {
             return AccessTools.Method(typeof(Skipdoor), "GetDoorTeleporterGismoz");
         }
+
+        public static IEnumerable<CodeInstruction> SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
+        {
+            List<CodeInstruction> instructionList = instructions.ToList();
+            bool found = false;
+            FieldInfo pawnInfo = AccessTools.Field(typeof(Skipdoor), nameof(Skipdoor.Pawn));
+            for(int i = 0; i < instructionList.Count; i++){
+                if(
+                    found == false &&
+                    instructionList[i].opcode == OpCodes.Newobj
+                    )
+                {
+                    found = true;
+                    //MethodInfo myTemp = AccessTools.Method(typeof)
+                    //MethodInfo myTry2 = AccessTools.Method(typeof())
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, pawnInfo);
+                    Label label = ilg.DefineLabel();
+
+                    yield return new CodeInstruction(OpCodes.Brtrue, label);
+                    yield return new CodeInstruction(OpCodes.Ret);
+                    yield return new CodeInstruction(OpCodes.Nop).WithLabels(label);
+
+                    yield return instructionList[i];
+
+                }
+                else
+                {
+                    yield return instructionList[i];
+                }
+                
+            }
+        }
+
         //public static IEnumerable<CodeInstruction> SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
         //{
         //    List<CodeInstruction> instructionList = instructions.ToList();
