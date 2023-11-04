@@ -12,6 +12,7 @@ using UnityEngine;
 
 using VanillaPsycastsExpanded.Skipmaster;
 using System.Reflection.Emit;
+using VFECore;
 
 namespace _1001_ArtificialSkipdoors
 {
@@ -58,7 +59,33 @@ namespace _1001_ArtificialSkipdoors
         }
     }
 
+    [HarmonyPatch]
+    public static class HarmonyPatches
+    {
+        //public static void GetJustRenameGizmo(VanillaPsycastsExpanded.VPE_DefOf def)
+        /* variables used:
+         * def
+         */
+        public static IEnumerable<Gizmo> GetJutRenameGizmo(Skipdoor door)
+        {
+            DoorTeleporterExtension extension = door.def.GetModExtension<DoorTeleporterExtension>();
+            DoorTeleporterMaterials doorMaterials = DoorTeleporter.doorTeleporterMaterials[door.def];
 
+            if (doorMaterials.RenameIcon != null)
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = extension.renameLabelKey.Translate(),
+                    defaultDesc = extension.renameDescKey.Translate(),
+                    icon = doorMaterials.RenameIcon,
+                    action = delegate
+                    {
+                        Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
+                    }
+                };
+            }
+        }
+    }
 
     [HarmonyPatch(typeof(Skipdoor), "GetDoorTeleporterGismoz")]
     public static class SkipDoor_GetDoorTeleporterGismoz_Transpiler
@@ -73,15 +100,33 @@ namespace _1001_ArtificialSkipdoors
             List<CodeInstruction> instructionList = instructions.ToList();
             bool found = false;
             FieldInfo pawnInfo = AccessTools.Field(typeof(Skipdoor), nameof(Skipdoor.Pawn));
-            for(int i = 0; i < instructionList.Count; i++){
-                if(
+
+            MethodInfo gizmosMethod = AccessTools.Method(typeof(HarmonyPatches), "GetJutRenameGizmo", null, null);
+
+
+
+            for (int i = 0; i < instructionList.Count; i++){
+                if (
+                    //i == 1)
                     found == false &&
                     instructionList[i].opcode == OpCodes.Newobj
                     )
+
                 {
                     found = true;
                     //MethodInfo myTemp = AccessTools.Method(typeof)
                     //MethodInfo myTry2 = AccessTools.Method(typeof())
+                    //yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    //yield return new CodeInstruction(OpCodes.Ldfld, pawnInfo);
+                    //Label label = ilg.DefineLabel();
+
+                    //yield return new CodeInstruction(OpCodes.Brtrue, label);
+                    //yield return new CodeInstruction(OpCodes.Ret);
+                    //yield return new CodeInstruction(OpCodes.Nop).WithLabels(label);
+
+                    //yield return new CodeInstruction(OpCodes.Call, gizmosMethod);
+                    //yield return new CodeInstruction(OpCodes.Nop);
+                    //yield return instructionList[i];
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Ldfld, pawnInfo);
                     Label label = ilg.DefineLabel();
@@ -89,7 +134,6 @@ namespace _1001_ArtificialSkipdoors
                     yield return new CodeInstruction(OpCodes.Brtrue, label);
                     yield return new CodeInstruction(OpCodes.Ret);
                     yield return new CodeInstruction(OpCodes.Nop).WithLabels(label);
-
                     yield return instructionList[i];
 
                 }
