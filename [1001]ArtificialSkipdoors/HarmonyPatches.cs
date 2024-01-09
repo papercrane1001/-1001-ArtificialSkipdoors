@@ -66,14 +66,14 @@ namespace _1001_ArtificialSkipdoors
         /* variables used:
          * def
          */
-        public static IEnumerable<Gizmo> GetJutRenameGizmo(Skipdoor door)
+        public static IEnumerable<Gizmo> GetJustRenameGizmo(Skipdoor door)
         {
             DoorTeleporterExtension extension = door.def.GetModExtension<DoorTeleporterExtension>();
             DoorTeleporterMaterials doorMaterials = DoorTeleporter.doorTeleporterMaterials[door.def];
 
             if (doorMaterials.RenameIcon != null)
             {
-                yield return new Command_Action
+                yield return new Command_Action //Should this be just a return, so it doesn't keep trying?
                 {
                     defaultLabel = extension.renameLabelKey.Translate(),
                     defaultDesc = extension.renameDescKey.Translate(),
@@ -85,6 +85,7 @@ namespace _1001_ArtificialSkipdoors
                 };
             }
         }
+
     }
 
     [HarmonyPatch(typeof(Skipdoor), "GetDoorTeleporterGismoz")]
@@ -93,6 +94,30 @@ namespace _1001_ArtificialSkipdoors
         public static MethodBase TargetMethod()
         {
             return AccessTools.Method(typeof(Skipdoor), "GetDoorTeleporterGismoz");
+        }
+
+        public static Gizmo GetJustRenameGizmoV2(Skipdoor door)
+        {
+            DoorTeleporterExtension extension = door.def.GetModExtension<DoorTeleporterExtension>();
+            DoorTeleporterMaterials doorMaterials = DoorTeleporter.doorTeleporterMaterials[door.def];
+
+            if (doorMaterials.RenameIcon != null)
+            {
+                return new Command_Action
+                {
+                    defaultLabel = extension.renameLabelKey.Translate(),
+                    defaultDesc = extension.renameDescKey.Translate(),
+                    icon = doorMaterials.RenameIcon,
+                    action = delegate
+                    {
+                        Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(door));
+                    }
+                };
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public static IEnumerable<CodeInstruction> SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
@@ -114,6 +139,8 @@ namespace _1001_ArtificialSkipdoors
 
                 {
                     found = true;
+                    MethodInfo myRenameGizmo = AccessTools.Method(
+                        typeof(HarmonyPatches), nameof(HarmonyPatches.GetJustRenameGizmo));
                     //MethodInfo myTemp = AccessTools.Method(typeof)
                     //MethodInfo myTry2 = AccessTools.Method(typeof())
                     //yield return new CodeInstruction(OpCodes.Ldarg_0);
@@ -132,9 +159,16 @@ namespace _1001_ArtificialSkipdoors
                     Label label = ilg.DefineLabel();
 
                     yield return new CodeInstruction(OpCodes.Brtrue, label);
-                    yield return new CodeInstruction(OpCodes.Ret);
+                    //yield return new CodeInstruction(OpCodes.Ret);
+                    yield return new CodeInstruction(OpCodes.Call, myRenameGizmo);
                     yield return new CodeInstruction(OpCodes.Nop).WithLabels(label);
                     yield return instructionList[i];
+
+                    /*
+                     * It doesn't like the current form.  I suspect this is because it expects an 
+                     * object to be returned, not just a null return.  As such, need to jump to the 
+                     * end instead of returning.
+                     */
 
                 }
                 else
