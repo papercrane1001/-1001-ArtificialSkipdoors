@@ -95,35 +95,49 @@ namespace _1001_ArtificialSkipdoors
         public static IEnumerable<CodeInstruction> SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
         {
             List<CodeInstruction> instructionList = instructions.ToList();
-            bool found = false;
+            bool found1 = false;
+            bool found2 = false;
             FieldInfo pawnInfo = AccessTools.Field(typeof(Skipdoor), nameof(Skipdoor.Pawn));
+
+            Label label = ilg.DefineLabel();
 
             for (int i = 0; i < instructionList.Count; i++){
                 if (
                     //i == 1)
-                    found == false &&
+                    found1 == false &&
+                    found2 == false &&
                     instructionList[i].opcode == OpCodes.Newobj
                     )
 
                 {
-                    found = true;
+                    found1 = true;
                     MethodInfo myRenameGizmo = AccessTools.Method(
                         typeof(HarmonyPatches), nameof(HarmonyPatches.GetJustRenameGizmo));
                     
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Ldfld, pawnInfo);
-                    Label label = ilg.DefineLabel();
+                    
 
-                    yield return new CodeInstruction(OpCodes.Brtrue, label);
+                    yield return new CodeInstruction(OpCodes.Brfalse, label);
 
-                    yield return new CodeInstruction(OpCodes.Call, myRenameGizmo);
+                    //yield return new CodeInstruction(OpCodes.Call, myRenameGizmo);
 
-                    yield return new CodeInstruction(OpCodes.Ret);
-                    yield return new CodeInstruction(OpCodes.Nop).WithLabels(label);
+                    //yield return new CodeInstruction(OpCodes.Ret);
+                    //yield return new CodeInstruction(OpCodes.Nop).WithLabels(label);
 
                     yield return instructionList[i];
 
 
+                }
+                else if(
+                    found1==true &&
+                    found2 == false &&
+                    instructionList[i].opcode == OpCodes.Ldarg_0
+                    )
+                {
+                    found2 = true;
+                    yield return new CodeInstruction(OpCodes.Nop).WithLabels(label);
+                    yield return instructionList[i];
                 }
                 else
                 {
