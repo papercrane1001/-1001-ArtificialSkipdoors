@@ -116,8 +116,6 @@ namespace _1001_ArtificialSkipdoors
                     
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Ldfld, pawnInfo);
-                    
-
                     yield return new CodeInstruction(OpCodes.Brfalse, label);
 
                     //yield return new CodeInstruction(OpCodes.Call, myRenameGizmo);

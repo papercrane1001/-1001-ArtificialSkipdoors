@@ -19,9 +19,9 @@ namespace _1001_ArtificialSkipdoors
     {
         public ModEntry(ModContentPack content) : base(content)
         {
-            //Log.Message("Ping0");
             var har = new Harmony(Content.PackageIdPlayerFacing);
-            System.Reflection.MethodInfo mOriginal = AccessTools.Method(typeof(VanillaPsycastsExpanded.Skipmaster.Skipdoor), "SpawnSetup");
+            System.Reflection.MethodInfo mOriginal = 
+                AccessTools.Method(typeof(VanillaPsycastsExpanded.Skipmaster.Skipdoor), "SpawnSetup");
             var mTranspiler = AccessTools.Method(
                 typeof(SkipDoor_SpawnSetup_Transpiler),
                 "SkipDoor_SpawnSetup_Actual_Transpiler");
@@ -30,7 +30,8 @@ namespace _1001_ArtificialSkipdoors
             if(mTranspiler == null) { Log.Message("mTranspiler null"); }
             har.Patch(mOriginal, null, null, new HarmonyMethod(mTranspiler));
 
-            System.Reflection.MethodInfo mOGUI = AccessTools.Method(typeof(VanillaPsycastsExpanded.Skipmaster.Skipdoor), "GetDoorTeleporterGismoz");
+            System.Reflection.MethodInfo mOGUI = 
+                AccessTools.Method(typeof(VanillaPsycastsExpanded.Skipmaster.Skipdoor), "GetDoorTeleporterGismoz");
             var mTrGUI = AccessTools.Method(
                 typeof(SkipDoor_GetDoorTeleporterGismoz_Transpiler),
                 "SkipDoor_GetDoorTeleporterGismoz_Actual_Transpiler");
