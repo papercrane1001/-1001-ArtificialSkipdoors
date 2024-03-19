@@ -115,13 +115,9 @@ namespace _1001_ArtificialSkipdoors
                         typeof(HarmonyPatches), nameof(HarmonyPatches.GetJustRenameGizmo));
                     
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Ldfld, pawnInfo);
+                    yield return new CodeInstruction(OpCodes.Ldfld, pawnInfo);                    
+
                     yield return new CodeInstruction(OpCodes.Brfalse, label);
-
-                    //yield return new CodeInstruction(OpCodes.Call, myRenameGizmo);
-
-                    //yield return new CodeInstruction(OpCodes.Ret);
-                    //yield return new CodeInstruction(OpCodes.Nop).WithLabels(label);
 
                     yield return instructionList[i];
 
