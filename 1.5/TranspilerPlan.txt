@@ -1,0 +1,41 @@
+Original:
+		public override void SpawnSetup(Map map, bool respawningAfterLoad)
+		{
+			base.SpawnSetup(map, respawningAfterLoad);
+			this.Pawn.Psycasts().AddMinHeatGiver(this);
+			if (!respawningAfterLoad)
+			{
+				this.Pawn.psychicEntropy.TryAddEntropy(50f, this, true, true);
+			}
+		}
+		
+		
+		
+My plan:
+
+		public override void SpawnSetup(Map map, bool respawningAfterLoad)
+		{
+			base.SpawnSetup(map, respawningAfterLoad);
+			if(this.Pawn == null){return;}
+			this.Pawn.Psycasts().AddMinHeatGiver(this);
+			if (!respawningAfterLoad)
+			{
+				this.Pawn.psychicEntropy.TryAddEntropy(50f, this, true, true);
+			}
+		}
+		
+		
+		Root level exception in OnGUI(): System.NullReferenceException: Object reference not set to an instance of an object
+  at VanillaPsycastsExpanded.Skipmaster.Skipdoor.SpawnSetup (Verse.Map map, System.Boolean respawningAfterLoad) [0x00015] in <0d2eb22f529a4262a98d8700445877e5>:0 
+  at Verse.GenSpawn.Spawn (Verse.Thing newThing, Verse.IntVec3 loc, Verse.Map map, Verse.Rot4 rot, Verse.WipeMode wipeMode, System.Boolean respawningAfterLoad) [0x00244] in <95de19971c5d40878d8742747904cdcd>:0 
+  at Verse.GenSpawn.Spawn (Verse.Thing newThing, Verse.IntVec3 loc, Verse.Map map, Verse.WipeMode wipeMode) [0x00000] in <95de19971c5d40878d8742747904cdcd>:0 
+  at _1001_ArtificialSkipdoors.NVPEDoorBuilding.SpawnSetup (Verse.Map map, System.Boolean respawningAfterLoad) [0x00056] in <1fbe227964d0415bbd66d52d20d85adb>:0 
+  at Verse.GenSpawn.Spawn (Verse.Thing newThing, Verse.IntVec3 loc, Verse.Map map, Verse.Rot4 rot, Verse.WipeMode wipeMode, System.Boolean respawningAfterLoad) [0x00244] in <95de19971c5d40878d8742747904cdcd>:0 
+  at RimWorld.Designator_Build.DesignateSingleCell (Verse.IntVec3 c) [0x000ad] in <95de19971c5d40878d8742747904cdcd>:0 
+  at Verse.DesignatorManager.ProcessInputEvents () [0x00058] in <95de19971c5d40878d8742747904cdcd>:0 
+  at RimWorld.MapInterface.HandleMapClicks () [0x0000f] in <95de19971c5d40878d8742747904cdcd>:0 
+  at RimWorld.UIRoot_Play.UIRootOnGUI () [0x00093] in <95de19971c5d40878d8742747904cdcd>:0 
+  at (wrapper dynamic-method) Verse.Root.Verse.Root.OnGUI_Patch1(Verse.Root)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+(wrapper dynamic-method) Verse.Log:Verse.Log.Error_Patch1 (string)
+(wrapper dynamic-method) Verse.Root:Verse.Root.OnGUI_Patch1 (Verse.Root)
