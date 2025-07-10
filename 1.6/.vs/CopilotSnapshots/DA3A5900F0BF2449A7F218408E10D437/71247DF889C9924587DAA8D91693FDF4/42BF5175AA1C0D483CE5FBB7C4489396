@@ -46,9 +46,9 @@ namespace _1001_ArtificialSkipdoors
             GenSpawn.Spawn(pdoor, Position + new IntVec3(0, 0, -1).RotatedBy(Rotation), map, WipeMode.Vanish);
 
             // Destroy the dummy pawn after setup
-            //if (dummyPawn.Spawned)
-            //    dummyPawn.DeSpawn();
-            //dummyPawn.Destroy();
+            if (dummyPawn.Spawned)
+                dummyPawn.DeSpawn();
+            dummyPawn.Destroy();
         }
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)

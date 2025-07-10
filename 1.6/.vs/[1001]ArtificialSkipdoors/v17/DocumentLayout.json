@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\[1001]artificialskipdoors\\1.6\\[1001]artificialskipdoors\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|solutionrelative:[1001]artificialskipdoors\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\[1001]artificialskipdoors\\1.6\\[1001]artificialskipdoors\\nvpedoorbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|solutionrelative:[1001]artificialskipdoors\\nvpedoorbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,8 +11,12 @@
       "RelativeMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|solutionrelative:[1001]artificialskipdoors\\harmonypatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\[1001]artificialskipdoors\\1.6\\[1001]artificialskipdoors\\notes\\error 2025-07-10 1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|solutionrelative:[1001]artificialskipdoors\\notes\\error 2025-07-10 1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\[1001]artificialskipdoors\\1.6\\[1001]artificialskipdoors\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|solutionrelative:[1001]artificialskipdoors\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\[1001]artificialskipdoors\\1.6\\[1001]artificialskipdoors\\nvpe_defof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{495E714C-FEC7-4521-A42A-D8F02B801765}|[1001]ArtificialSkipdoors\\[1001]ArtificialSkipdoors.csproj|solutionrelative:[1001]artificialskipdoors\\nvpe_defof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,60 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Error 2025-07-10 1.txt",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\Notes\\Error 2025-07-10 1.txt",
-              "RelativeDocumentMoniker": "[1001]ArtificialSkipdoors\\Notes\\Error 2025-07-10 1.txt",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\Notes\\Error 2025-07-10 1.txt",
-              "RelativeToolTip": "[1001]ArtificialSkipdoors\\Notes\\Error 2025-07-10 1.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-07-10T21:43:54.507Z",
+              "Title": "NVPE_DefOf.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\NVPE_DefOf.cs",
+              "RelativeDocumentMoniker": "[1001]ArtificialSkipdoors\\NVPE_DefOf.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\NVPE_DefOf.cs",
+              "RelativeToolTip": "[1001]ArtificialSkipdoors\\NVPE_DefOf.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T22:04:27.114Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "NVPEDoorBuilding.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\NVPEDoorBuilding.cs",
               "RelativeDocumentMoniker": "[1001]ArtificialSkipdoors\\NVPEDoorBuilding.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\NVPEDoorBuilding.cs",
               "RelativeToolTip": "[1001]ArtificialSkipdoors\\NVPEDoorBuilding.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAASwCEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADIAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T21:26:58.156Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ModEntry.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\ModEntry.cs",
               "RelativeDocumentMoniker": "[1001]ArtificialSkipdoors\\ModEntry.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\ModEntry.cs",
               "RelativeToolTip": "[1001]ArtificialSkipdoors\\ModEntry.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA1wC8AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T21:26:00.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "HarmonyPatches.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\HarmonyPatches.cs",
               "RelativeDocumentMoniker": "[1001]ArtificialSkipdoors\\HarmonyPatches.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\[1001]ArtificialSkipdoors\\1.6\\[1001]ArtificialSkipdoors\\HarmonyPatches.cs",
               "RelativeToolTip": "[1001]ArtificialSkipdoors\\HarmonyPatches.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAUwEEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAuwJsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T21:26:00.429Z",
               "EditorCaption": ""

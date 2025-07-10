@@ -29,26 +29,9 @@ namespace _1001_ArtificialSkipdoors
             base.SpawnSetup(map, respawningAfterLoad);
 
             pdoor = (Skipdoor)ThingMaker.MakeThing(VPE_DefOf.VPE_Skipdoor, null);
-            if (pdoor == null)
-            {
-                Log.Message("Sdoor null");
-                return;
-            }
-
-            // Create a dummy pawn
-            PawnKindDef pawnKind = PawnKindDefOf.Colonist;
-            Faction faction = Faction.OfPlayer;
-            PawnGenerationRequest request = new PawnGenerationRequest(pawnKind, faction, PawnGenerationContext.NonPlayer, map.Tile);
-            Pawn dummyPawn = PawnGenerator.GeneratePawn(request);
-            pdoor.Pawn = dummyPawn;
-
-            // Spawn the skipdoor (this will call its SpawnSetup)
+            if(pdoor == null) { Log.Message("Sdoor null"); }
+            //Find.WindowStack.Add(new Dialog_RenameDoorTeleporter(pdoor));
             GenSpawn.Spawn(pdoor, Position + new IntVec3(0, 0, -1).RotatedBy(Rotation), map, WipeMode.Vanish);
-
-            // Destroy the dummy pawn after setup
-            //if (dummyPawn.Spawned)
-            //    dummyPawn.DeSpawn();
-            //dummyPawn.Destroy();
         }
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
