@@ -6,6 +6,7 @@
 	<supportedVersions>
 		<li>1.4</li>
 		<li>1.5</li>
+		<li>1.6</li>
 	</supportedVersions>
 	<description>Strongly recommended for use with:
 	https://steamcommunity.com/sharedfiles/filedetails/?id=3011764218
@@ -16,9 +17,9 @@
 	I use the MIT license: https://opensource.org/licenses/MIT
 	which mostly says that if you use my code, please give me credit.  
 	
-	GitHub at: 
+	GitHub at: TBD
 	
 	 
 	\n\nVersion 1.0.0
-	\nFor version 1.4, 1.5.</description>
+	\nFor versions 1.4 - 1.6</description>
 </ModMetaData>

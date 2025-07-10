@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>NVPEDoorBuilding</defName>
+		<thingClass>_1001_ArtificialSkipdoors.NVPEDoorBuilding</thingClass>
+		<label>TeleDoor</label>
+		<graphicData>
+			<texPath>temp</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<passability>Standable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToMake>500</WorkToMake>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<description>A technologically-generated skipdoor.</description>
+		<size>(1,1)</size>
+		<costList>
+			<Steel>200</Steel>
+			<Plasteel>35</Plasteel>
+			<ComponentIndustrial>15</ComponentIndustrial>
+			<ComponentSpacer>3</ComponentSpacer>
+		</costList>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<designationCategory>Structure</designationCategory>
+		<researchPrerequisites>
+			<li>TeleDoor</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		
+	</ThingDef>
+
+
+	
+</Defs>

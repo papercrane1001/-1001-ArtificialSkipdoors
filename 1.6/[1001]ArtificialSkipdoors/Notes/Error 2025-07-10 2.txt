@@ -1,0 +1,29 @@
+Error while instantiating a mod of type _1001_ArtificialSkipdoors.ModEntry: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not resolve type with token 0100003d from typeref (expected class 'VFECore.ShieldUtility' in assembly 'VFECore, Version=1.1.7.0, Culture=neutral, PublicKeyToken=null')
+[Ref B5502F6C]
+(wrapper managed-to-native) System.Object.__icall_wrapper_mono_gc_wbarrier_generic_nostore_internal(intptr)
+(wrapper write-barrier) System.Object.wbarrier_conc(intptr)
+(wrapper managed-to-native) System.Reflection.RuntimeConstructorInfo.InternalInvoke(System.Reflection.RuntimeConstructorInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeConstructorInfo.InternalInvoke (System.Object obj, System.Object[] parameters, System.Boolean wrapExceptions) [0x00005] in <51fded79cd284d4d911c5949aff4cb21>:0 
+   --- End of inner exception stack trace ---
+[Ref 104FA8FD]
+  at System.Reflection.RuntimeConstructorInfo.InternalInvoke (System.Object obj, System.Object[] parameters, System.Boolean wrapExceptions) [0x0001a] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Reflection.RuntimeConstructorInfo.DoInvoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00086] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Reflection.RuntimeConstructorInfo.Invoke (System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.RuntimeType.CreateInstanceImpl (System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Threading.StackCrawlMark& stackMark) [0x0022b] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) [0x0009c] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at System.Activator.CreateInstance (System.Type type, System.Object[] args) [0x00000] in <51fded79cd284d4d911c5949aff4cb21>:0 
+  at Verse.LoadedModManager.CreateModClasses () [0x00085] in <a57c190620374f8eab631c51cf4b6536>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+(wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition:Verse.Log.Error_Patch1 (string)
+Verse.LoadedModManager:CreateModClasses ()
+Verse.LoadedModManager:LoadAllActiveMods (bool)
+Verse.PlayDataLoader:DoPlayLoad ()
+Verse.PlayDataLoader:LoadAllPlayData (bool)
+Verse.Root/<>c:<Start>b__10_1 ()
+Verse.LongEventHandler:RunEventFromAnotherThread (System.Action)
+Verse.LongEventHandler/<>c:<UpdateCurrentAsynchronousEvent>b__28_0 ()
+System.Threading.ThreadHelper:ThreadStart_Context (object)
+System.Threading.ExecutionContext:RunInternal (System.Threading.ExecutionContext,System.Threading.ContextCallback,object,bool)
+System.Threading.ExecutionContext:Run (System.Threading.ExecutionContext,System.Threading.ContextCallback,object,bool)
+System.Threading.ExecutionContext:Run (System.Threading.ExecutionContext,System.Threading.ContextCallback,object)
+System.Threading.ThreadHelper:ThreadStart ()
